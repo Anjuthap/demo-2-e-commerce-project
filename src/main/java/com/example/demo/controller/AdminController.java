@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.CategoryDTO;
+import com.example.demo.dto.ProductDTO;
 import com.example.demo.entities.Category;
+import com.example.demo.entities.Product;
 import com.example.demo.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,4 +29,10 @@ public class AdminController {
         List<Category> allCategories = adminService.getAllCategories();
         return ResponseEntity.ok(allCategories);
     }
+    @PostMapping("/product/{categoryId}")
+    public ResponseEntity<Product> postProduct(@PathVariable Long categoryId, @ModelAttribute ProductDTO productDTO) throws Exception{
+        Product postedProduct= adminService.postProduct(categoryId,productDTO);
+return  ResponseEntity.status(HttpStatus.CREATED).body(postedProduct);
+    }
+
 }

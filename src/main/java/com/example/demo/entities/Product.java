@@ -15,8 +15,12 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private  Integer price;
+    private String name;
+    @Lob
+    private  String description;
 
+    private  Integer price;
+@Column(columnDefinition = "longblob")
     private  byte[] image;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
