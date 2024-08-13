@@ -11,7 +11,15 @@ import java.util.List;
 public interface AdminService {
     Category createCategory(CategoryDTO categoryDTO);
 
-    List<Category> getAllCategories();
+    List<CategoryDTO> getAllCategories();
 
     Product postProduct(Long categoryId, ProductDTO productDTO) throws IOException;
+
+    List<ProductDTO> getAllProducts();
+
+    void deleteProduct(Long id);
+
+    ProductDTO getProductById(Long id);
+
+    ProductDTO updateProduct(Long categoryId, Long productId, ProductDTO productDTO) throws IOException;
 }

@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.example.demo.dto.ProductDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -20,7 +21,8 @@ public class Product {
     private  String description;
 
     private  Integer price;
-@Column(columnDefinition = "longblob")
+
+    @Column(columnDefinition = "longblob")
     private  byte[] image;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -28,6 +30,18 @@ public class Product {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Category category;
+
+    public ProductDTO getProductDTO(){
+        ProductDTO productDTO= new ProductDTO();
+        productDTO.setId(id);
+        productDTO.setName(name);
+        productDTO.setDescription(description);
+        productDTO.setPrice(price);
+        productDTO.setReturnedImage(image);
+        productDTO.setCategoryId(category.getId());
+        productDTO.setCategoryName(category.getName());
+        return productDTO;
+    }
 
 
 }

@@ -23,4 +23,10 @@ public class ProductDTO {
 
     private MultipartFile image;
 
+    private byte[] returnedImage;
+
+    private Long categoryId;
+
+    private String categoryName;
+
 }
