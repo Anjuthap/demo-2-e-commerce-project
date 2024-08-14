@@ -53,7 +53,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<ProductDTO> getAllProducts() {
-        return productRepository.findAllgit ().stream().map(Product::getProductDTO).collect(Collectors.toList());
+        return productRepository.findAll().stream().map(Product::getProductDTO).collect(Collectors.toList());
     }
 
     @Override

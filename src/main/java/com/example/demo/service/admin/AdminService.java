@@ -21,5 +21,5 @@ public interface AdminService {
 
     ProductDTO getProductById(Long id);
 
-    ProductDTO updateProduct(Long categoryId, Long productId, ProductDTO productDTO) throws IOException;
+    ProductDTO updateProduct(Long categoryId, Long productId, ProductDTO productDTO ) throws IOException;
 }
