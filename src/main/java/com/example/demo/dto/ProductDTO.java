@@ -29,4 +29,7 @@ public class ProductDTO {
 
     private String categoryName;
 
+    private Integer quantity;
+    private double discount;
+
 }

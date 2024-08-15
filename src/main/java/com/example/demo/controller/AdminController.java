@@ -4,7 +4,7 @@ import com.example.demo.dto.CategoryDTO;
 import com.example.demo.dto.ProductDTO;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
-import com.example.demo.service.admin.AdminService;
+import com.example.demo.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

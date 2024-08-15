@@ -22,6 +22,10 @@ public class Product {
 
     private  Integer price;
 
+    private Integer quantity;
+
+    private double discount;
+
     @Column(columnDefinition = "longblob")
     private  byte[] image;
 

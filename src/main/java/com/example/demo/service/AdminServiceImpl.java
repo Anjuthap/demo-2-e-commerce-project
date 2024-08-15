@@ -1,4 +1,4 @@
-package com.example.demo.service.admin;
+package com.example.demo.service;
 
 import com.example.demo.dto.CategoryDTO;
 import com.example.demo.dto.ProductDTO;
