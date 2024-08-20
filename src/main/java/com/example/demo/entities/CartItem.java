@@ -11,22 +11,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity //maps a table in a db
 @Table(name = "cart_items")
-@Data
+@Data //boilerplate methos generate gardincha like save(),
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //automatically generate ID OF the Pk IN DB
     private Long cartItemId;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @ManyToOne // many CartItem entities can be associated with one Cart.
+    @JoinColumn(name = "cart_id") //create cart id column in cart item table that contains Cart entities.
     private Cart cart;
 
-    @ManyToOne
+    @ManyToOne //many CartItem entities can be associated with one Product
     @JoinColumn(name = "product_id")
     private Product product;
 

@@ -16,19 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.CartDTO;
 import com.example.demo.service.CartService;
 
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+//import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@RestController
-@RequestMapping("/api")
-@SecurityRequirement(name = "E-Commerce Application")
+@RestController //marks the class as a controller.its serve json data to the client...yo chai combine of controler and response body  so jasle auto json coversion gardincha
+@RequestMapping("/api") //mapping
+//@SecurityRequirement(name = "E-Commerce Application")
 public class CartController {
 
     @Autowired
-    private CartService cartService;
+    private CartService cartService; //inject an instance of CartService into this controller, allowing it to use the business logic defined in the service layer.
 
     @PostMapping("/public/carts/{cartId}/products/{productId}/quantity/{quantity}")
-    public ResponseEntity<CartDTO> addProductToCart(@PathVariable Long cartId, @PathVariable Long productId, @PathVariable Integer quantity) {
-        CartDTO cartDTO = cartService.addProductToCart(cartId, productId, quantity);
+    public ResponseEntity<CartDTO> addProductToCart(@PathVariable Long cartId, @PathVariable Long productId, @PathVariable Integer quantity) { //Binds the method parameters to the respective path variables in the URL.
+        CartDTO cartDTO = cartService.addProductToCart(cartId, productId, quantity); //Calls the service layer to add a product to the cart.
 
         return new ResponseEntity<CartDTO>(cartDTO, HttpStatus.CREATED);
     }

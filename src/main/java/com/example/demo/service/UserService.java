@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.UserDTO;
+import com.example.demo.dto.UserResponse;
 //import com.example.demo.dto.UserResponse;
 
 public interface UserService {
@@ -10,7 +11,9 @@ public interface UserService {
 
     UserDTO getUserById(Long userId);
 
-    UserDTO updateUser(Long userId, UserDTO userDTO);
+    UserResponse getAllUsers(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 
-    String deleteUser(Long userId);
+//    UserDTO updateUser(Long userId, UserDTO userDTO);
+
+//    String deleteUser(Long userId);
 }
