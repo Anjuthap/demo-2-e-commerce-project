@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@Data //Automatically creates boilerplate code like getters and setters.
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartDTO {

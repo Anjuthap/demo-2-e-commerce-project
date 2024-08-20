@@ -6,7 +6,7 @@ import com.example.demo.dto.CartDTO;
 
 public interface CartService {
 
-    CartDTO addProductToCart(Long cartId, Long productId, Integer quantity);
+    CartDTO addProductToCart(Long cartId, Long productId, Integer quantity); //this method will return the cartdto objects which contain the info about cart when product is added
 
     List<CartDTO> getAllCarts();
 

@@ -32,8 +32,8 @@ import jakarta.transaction.Transactional;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-//    @Autowired
-//    public UserRepo userRepo;
+    @Autowired
+    public UserRepo userRepo;
 
     @Autowired
     public CartRepo cartRepo;

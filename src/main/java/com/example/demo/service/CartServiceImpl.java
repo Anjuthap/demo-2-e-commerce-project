@@ -24,8 +24,9 @@ import jakarta.transaction.Transactional;
 @Service
 public class CartServiceImpl implements CartService {
 
-    @Autowired
-    private CartRepo cartRepo;
+    @Autowired //It tells the Spring framework to automatically inject the required dependency at runtime.
+    private CartRepo cartRepo; //Injected to interact with Cart entities in the database.
+
 
     @Autowired
     private ProductRepository productRepo;
@@ -34,15 +35,15 @@ public class CartServiceImpl implements CartService {
     private CartItemRepo cartItemRepo;
 
     @Autowired
-    private ModelMapper modelMapper;
+    private ModelMapper modelMapper;  //used to mapp the enitities to their dto
 
     @Override
     public CartDTO addProductToCart(Long cartId, Long productId, Integer quantity) {
 
-        Cart cart = cartRepo.findById(cartId)
+        Cart cart = cartRepo.findById(cartId) //fetching the cart / Tries to find a Cart entity by its ID (cartId) using the CartRepo repository.
                 .orElseThrow(() -> new ResourceNotFoundException("Cart", "cartId", cartId));
 
-        Product product = productRepo.findById(productId)
+        Product product = productRepo.findById(productId) //Tries to find a Product entity by its ID (productId) using the ProductRepository
                 .orElseThrow(() -> new ResourceNotFoundException("Product", "productId", productId));
 
         CartItem cartItem = cartItemRepo.findCartItemByProductIdAndCartId(cartId, productId);
