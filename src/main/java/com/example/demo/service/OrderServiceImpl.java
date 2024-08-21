@@ -98,7 +98,7 @@ public class OrderServiceImpl implements OrderService {
             OrderItem orderItem = new OrderItem();
 
             orderItem.setProduct(cartItem.getProduct());
-            orderItem.setQuantity(cartItem.getQuantity());
+//            orderItem.setQuantity(cartItem.getQuantity());
             orderItem.setDiscount(cartItem.getDiscount());
             orderItem.setOrderedProductPrice(cartItem.getProductPrice());
             orderItem.setOrder(savedOrder);
@@ -108,15 +108,15 @@ public class OrderServiceImpl implements OrderService {
 
         orderItems = orderItemRepo.saveAll(orderItems);
 
-        cart.getCartItems().forEach(item -> {
-            int quantity = item.getQuantity();
-
-            Product product = item.getProduct();
-
-            cartService.deleteProductFromCart(cartId, item.getProduct().getId());
-
-            product.setQuantity(product.getQuantity() - quantity);
-        });
+//        cart.getCartItems().forEach(item -> {
+//            int quantity = item.getQuantity();
+//
+//            Product product = item.getProduct();
+//
+//            cartService.deleteProductFromCart(cartId, item.getProduct().getId());
+//
+//            product.setQuantity(product.getQuantity() - quantity);
+//        });
 
         OrderDTO orderDTO = modelMapper.map(savedOrder, OrderDTO.class);
 

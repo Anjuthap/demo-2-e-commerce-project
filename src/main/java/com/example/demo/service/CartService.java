@@ -6,16 +6,16 @@ import com.example.demo.dto.CartDTO;
 
 public interface CartService {
 
-    CartDTO addProductToCart(Long cartId, Long productId, Integer quantity); //this method will return the cartDTO objects which contain the info about cart when product is added
+    CartDTO addProductToCart(Long cartId, Long productId); //this method will return the cartDTO objects which contain the info about cart when product is added
 
     List<CartDTO> getAllCarts();
 
     CartDTO getCart(String emailId, Long cartId);
 
-    CartDTO updateProductQuantityInCart(Long cartId, Long productId, Integer quantity);
+//    CartDTO updateProductQuantityInCart(Long cartId, Long productId, Integer quantity);
 
-    void updateProductInCarts(Long cartId, Long productId);
+//    void updateProductInCarts(Long cartId, Long productId);
 
-    String deleteProductFromCart(Long cartId, Long productId);
+//    String deleteProductFromCart(Long cartId, Long productId);
 
 }

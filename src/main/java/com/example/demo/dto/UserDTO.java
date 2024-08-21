@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
 
     private Long userId;
-    private String firstName;
-    private String lastName;
-    private String mobileNumber;
+//    private String firstName;
+//    private String lastName;
+//    private String mobileNumber;
     private String email;
     private String password;
 //    private Set<Role> roles = new HashSet<>();
