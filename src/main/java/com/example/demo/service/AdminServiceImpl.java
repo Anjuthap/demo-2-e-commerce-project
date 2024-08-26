@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.CategoryDTO;
 import com.example.demo.dto.ProductDTO;
+import com.example.demo.dto.UserDTO;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
 import com.example.demo.repository.CategoryRepository;
@@ -36,6 +37,25 @@ public class AdminServiceImpl implements AdminService {
 
     }
     @Override
+    public void deleteCategory(Long id) {
+        if (categoryRepository.existsById(id)) {
+            categoryRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Category not found with id: " + id);
+        }
+    }
+
+    public Category updateCategory(Long id, CategoryDTO categoryDTO) {
+        Optional<Category> optionalCategory = categoryRepository.findById(id);
+        if (optionalCategory.isPresent()) {
+            Category category = optionalCategory.get();
+            category.setName(categoryDTO.getName());
+            category.setDescription(categoryDTO.getDescription());
+            return categoryRepository.save(category);
+        }
+        return null;
+    }
+    @Override
      //creating method
     public Product postProduct(Long categoryId, ProductDTO productDTO) throws IOException {
         Optional<Category> optionalCategory= categoryRepository.findById(categoryId);
@@ -44,6 +64,8 @@ public class AdminServiceImpl implements AdminService {
             product.setName(productDTO.getName());
             product.setPrice(productDTO.getPrice());
             product.setDescription(productDTO.getDescription());
+            product.setQuantity(productDTO.getQuantity());
+            product.setDiscount(productDTO.getDiscount());
             product.setImage(productDTO.getImage().getBytes());
             product.setCategory(optionalCategory.get());
             return productRepository.save(product);
@@ -52,8 +74,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<ProductDTO> getAllProducts() {
-        return productRepository.findAll().stream().map(Product::getProductDTO).collect(Collectors.toList());
+    public UserDTO getAllProducts() {
+        return (UserDTO) productRepository.findAll().stream().map(Product::getProductDTO).collect(Collectors.toList());
     }
 
     @Override

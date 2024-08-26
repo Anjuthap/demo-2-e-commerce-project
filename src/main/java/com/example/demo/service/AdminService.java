@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.CategoryDTO;
 import com.example.demo.dto.ProductDTO;
+import com.example.demo.dto.UserDTO;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
 
@@ -13,9 +14,13 @@ public interface AdminService {
 
     List<CategoryDTO> getAllCategories();
 
+     void deleteCategory(Long id);
+
+     Category updateCategory(Long id, CategoryDTO categoryDTO);
+
     Product postProduct(Long categoryId, ProductDTO productDTO) throws IOException;
 
-    List<ProductDTO> getAllProducts();
+    UserDTO getAllProducts();
 
     void deleteProduct(Long id);
 

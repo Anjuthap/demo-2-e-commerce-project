@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.example.demo.dto.UserResponse;
@@ -14,7 +15,7 @@ import org.springframework.data.domain.Sort;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.config.AppConstants;
+//import com.example.demo.config.AppConstants;
 //import com.app.entites.Address;
 import com.example.demo.entities.Cart;
 import com.example.demo.entities.CartItem;
@@ -31,9 +32,9 @@ import com.example.demo.dto.UserDTO;
 //import com.app.repositories.RoleRepo;
 import com.example.demo.repository.UserRepo;
 
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 
-@Transactional
+//@Transactional
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -48,6 +49,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private CartService cartService;
+
+//    @Autowired
+//    private  AdminService adminService;
 
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;
@@ -147,6 +151,11 @@ public class UserServiceImpl implements UserService {
         return userResponse;
     }
 
+//    @Override
+//    public UserDTO getAllProducts(UserDTO userDTO) {
+//        return userDTO;
+//    }
+
     @Override
     public UserDTO getUserById(Long userId) {
         User user = userRepo.findById(userId)
@@ -166,6 +175,17 @@ public class UserServiceImpl implements UserService {
         userDTO.getCart().setProducts(products);
 
         return userDTO;
+
+    }
+@Override
+    public UserDTO updateUser(Long id, UserDTO userDTO) {
+        Optional<UserDTO> optionalUser = UserRepo.findById(id);
+        if (optionalUser.isPresent()) {
+            UserDTO user = optionalUser.get();
+            user.setEmail(userDTO.getEmail());
+            user.setPassword(userDTO.getPassword()); // In a real app, hash the password before saving
+            return userRepo.save(user);
+
     }
 
 //    @Override
