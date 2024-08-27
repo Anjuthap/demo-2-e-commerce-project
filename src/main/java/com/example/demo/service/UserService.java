@@ -18,7 +18,7 @@ public interface UserService {
     UserResponse getAllUsers(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 
 
- UserDTO updateUser(Long userId, UserDTO userDTO);
+// UserDTO updateUser(Long userId, UserDTO userDTO);
 //    String deleteUser(Long userId);
 //     UserDTO getAllProducts(UserDTO userDTO);
 

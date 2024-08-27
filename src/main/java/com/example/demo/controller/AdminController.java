@@ -31,7 +31,7 @@ public class AdminController {
         List<CategoryDTO> allCategories = adminService.getAllCategories();
         return ResponseEntity.ok(allCategories);
     }
-    @PutMapping("/{id}")
+    @PutMapping("/category/{id}")
     public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody CategoryDTO categoryDTO) {
         try {
             Category updatedCategory = adminService.updateCategory(id, categoryDTO);
@@ -42,7 +42,7 @@ public class AdminController {
     }
 
     //delete a category
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/category/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
         try {
             adminService.deleteCategory(id);

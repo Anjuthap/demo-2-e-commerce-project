@@ -177,16 +177,16 @@ public class UserServiceImpl implements UserService {
         return userDTO;
 
     }
-@Override
-    public UserDTO updateUser(Long id, UserDTO userDTO) {
-        Optional<UserDTO> optionalUser = UserRepo.findById(id);
-        if (optionalUser.isPresent()) {
-            UserDTO user = optionalUser.get();
-            user.setEmail(userDTO.getEmail());
-            user.setPassword(userDTO.getPassword()); // In a real app, hash the password before saving
-            return userRepo.save(user);
+//@Override
+//    public UserDTO updateUser(Long id, UserDTO userDTO) {
+//        Optional<UserDTO> optionalUser = UserRepo.findById(id);
+//        if (optionalUser.isPresent()) {
+//            UserDTO user = optionalUser.get();
+//            user.setEmail(userDTO.getEmail());
+//            user.setPassword(userDTO.getPassword()); // In a real app, hash the password before saving
+//            return userRepo.save(user);
 
-    }
+//    }
 
 //    @Override
 //    public UserDTO updateUser(Long userId, UserDTO userDTO) {
